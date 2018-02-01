@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage[all]{xy}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{MnSymbol}
+\usepackage{graphicx}
+%\usepackage{draftwatermark}
+%\SetWatermarkLightness{0.9}
+%\SetWatermarkScale{6}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat*{\section}{\bf \large}
+\titleformat*{\subsection}{\bf }
+
+\theoremstyle{definition}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exam}{Example}[section]
+\newtheorem{exams}{Examples}[section]
+\newtheorem*{rem}{Remark}
+\newtheorem{cor}{Corollary}[section]
+\newtheorem*{claim}{Claim}
+
+\newcommand{\op}{\text{Op}}
+\newcommand{\tr}{\text{Tr}}
+\newcommand{\iso}{\text{iso}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\id}{\text{id}}
+\newcommand{\pr}{\text{pr}}
+\newcommand{\vect}{\text{Vect}}
+\newcommand{\supp}{\text{supp}}
+\newcommand{\End}{\text{End}}
+\newcommand{\diag}{\text{diag}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\K}{\text{K}}
+\newcommand{\Kg}[1]{\text{K}_{#1}}
+\newcommand{\bd}{\partial}
+\newcommand{\bul}{\bullet}
+\newcommand{\Ad}{\text{Ad}}
+\newcommand{\CP}[1]{\mathbb{C}\text{P}^{#1}}
+\newcommand{\RP}[1]{\mathbb{R}\text{P}^{#1}}
+\newcommand{\w}{\wedge}
+\newcommand{\lr}[1]{\langle #1 \rangle}
+%\newcommand{\D}[1]{\Lambda^#1}
+\newcommand{\Ot}{\ \hat{\otimes}\ }
+\newcommand{\ot}{\otimes}
+\newcommand{\bndry}{\partial}
+\newcommand{\Cl}[1]{\mathbb{C} l(#1)}
+\newcommand{\ECl}[1]{\mathbb{C} l^0(#1)}
+\newcommand{\OCl}[1]{\mathbb{C} l^1(#1)}
+\newcommand{\GCl}[1]{\text{Cliff}(#1)\ot \mathbb{C}}
+\newcommand{\RCl}{\text{Cliff}(\R^n)}
+\newcommand{\Hom}[1]{\text{Hom}(#1)}
+\newcommand{\rank}[1]{\text{Rank}(#1)}
+\newcommand{\diff}[1]{\text{d}{#1}}
+\newcommand{\idcup}[1]{\cup_{#1}}
+\newcommand{\sset}{\subseteq}
+\newcommand{\hotimes}{\hat{\otimes}}
+\newcommand{\corl}[1]{\overset{#1}{\longleftarrow}}
+\newcommand{\corr}[1]{\overset{#1}{\longrightarrow}}
+\newcommand{\kk}[1]{\widehat{\textsc{kk}}_*(#1)}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\kkg}[2]{\widehat{\textsc{kk}}_*^{#1}(#2)}
+\newcommand{\ssupp}{\text{sing supp }}
+\newcommand{\coker}{\text{coker}}
+\newcommand{\dolb}{\overline{\partial}}
+
+
+\begin{document}
+	\begin{center}
+		\Large \textbf{What is the Index of $\dolb$?} \\
+		
+		\medskip
+		\large Daniel Hudson \\ 
+		\href{mailto:drhh@uvic.ca}{drhh@uvic.ca}
+	\end{center}
+
+\section{What is $\dolb$?}
+
+\subsection{Complex Manifolds}
+
+A complex manifold is a topological manifold whose transition functions are biholomorphisms, meaning that they are holomorphic maps with holomorphic inverses.
+
+\begin{exam}
+	The complex projective line $\C P^1$ is a 1 complex dimensional manifold which can be covered by two charts: 
+		\begin{align*}
+			U_1:=\{[z_1,z_2]\in \C P^1:z_1\neq 0\}\ni[z_1,z_2] \mapsto z_2/z_1\in \C, \\
+			U_2:=\{[z_1,z_2]\in \C P^1:z_2\neq 0\}\ni[z_1,z_2] \mapsto z_1/z_2\in \C.
+		\end{align*}
+	From this we see that the single transition function $\C^*\to \C^*$ is $z\mapsto 1/z$, which is clearly holomorphic. 
+\end{exam} 
+
+\begin{exam}
+	The 2-sphere is a complex manifold we we use that stereographic projection as our charts. Again the transition function is $z\mapsto 1/z$. It is biholomorphic to $\C P^1$, and an explicit biholomorphism is given by 
+		blegh
+\end{exam}
+
+\begin{exam}
+	The group $SU(2)$ acts transitively on $\C P^1$, and the isotropy group of $[0,1]$ is $U(1) = \T$. Thus, $\C P^1 \cong SU(2)/\T$ has the structure of a homogeneous space. This will be important later on when we use a theorem of Bott to compute the index of $\dolb$. 
+\end{exam}
+
+Let $X$ be a complex manifold of (complex) dimension $n$. The \textit{complex} tangent space at $x\in X$, denoted $T_{x,\C}X$ is defined as the space of $\C$-linear derivations of germs of holomorphic functions at $x$; it is a complex vector space spanned by $\{\frac{\partial}{\partial z_1}, \dots, \frac{\partial}{\partial z_n}\}$. Every complex manifold is, in particular, a smooth manifold, and the real tangent space, $T_{x,\R}X$, is given a complex structure $J$ inherited from $T_{x,\C}X$; it is a real vector space spanned by $\{\frac{\partial}{\partial x_1}, \frac{\partial}{\partial y_1}, \dots, \frac{\partial}{\partial x_n},\frac{\partial}{\partial y_n}\}$, where $\frac{\partial}{\partial y_j}=J\frac{\partial}{\partial x_j}$. The \textit{complexified tangent space} at $x\in X$ is $T_{x,\R}X\otimes_\R \C$; it is a complex vector space of complex dimension $2n$. The complex structure on $T_{x,\R}X$ extends to an automorphism of $T_{x,\R}X\otimes \C$ which squares to $-1$ via 
+	\[J(v\otimes z) = J(v)\otimes z. \]
+Then $T_{x,\C}X$ is naturally $\C$-isomorphic to the $+i$-eigenspace of $J$ via
+	\[\frac{\partial}{\partial z_j} \mapsto \frac{1}{2}\left(\frac{\partial}{\partial x_j}-i\frac{\partial}{\partial y_j} \right). \]
+Similarly, the $-i$-eigenspace is spanned by $\frac{\partial}{\partial \bar{z}_j} := \frac{1}{2}\left(\frac{\partial}{\partial x_j}+i\frac{\partial}{\partial y_j} \right)$. We define $T^{1,0}_xX$ and $T^{0,1}_xX$ to be the $+i-$ and $-i$-eigenspace of $J$, respectively. 
+
+\subsection{The Definition of $\dolb$}
+
+Let $T^*_{x}X^{1,0}$ and $T^*_{x}X^{0,1}$ denote the $\C$-dual space of $T^{1,0}_xX$ and $T^{0,1}_xX$, respectively. Then we have that $T^*_{x,\R}X\otimes \C =   T^*_{x}X^{1,0} \oplus T^*_{x}X^{0,1}$, whence there are inclusions 
+	\begin{align*}
+		\Lambda T^*_{x}X^{1,0} \longrightarrow \Lambda T^*_{x,\R}X\otimes \C \longleftarrow \Lambda T^*_{x}X^{0,1}.
+	\end{align*}
+One checks that $T^*_{x}X^{1,0}$ is spanned by the covectors $dz_j=dx_j+idy_j$ and that $T^*_{x}X^{0,1}$ is spanned by the covectors $d\bar{z}_j=dx_j-idy_j$. We define $\Lambda^{p,q}T^*_{x,\R}X\otimes \C$ to be the subspace generated by elements of the for $\omega\w \tau$, where $\omega \in \Lambda^pT^*_{x}X^{1,0}$ and $\tau \in \Lambda^q T^*_{x}X^{0,1}$. Finally, we define $\Omega^{p,q}(X)$ to be the sections of the bundle $\Lambda^{p,q}T^*_{\R}X\otimes \C$; elements of $\Omega^{p,q}(X)$ are called the \textit{complex differential forms of type $(p,q)$}.
+
+The exerior derivative is thus a map $\Omega^{p,q}(X) \to \Omega^{p+q+1}$, since if $\omega \in \Omega^{p,q}(X)$ we have 
+	\begin{align*}
+		d\omega & = d\left(\sum_{|I|=p, |J|=q}a_{IJ}dz_Id\bar{z}_J\right) = \sum_{j=1}^n\sum_{|I|=p, |J|=q}\left(\frac{\partial a_{IJ}}{\partial x_j}dx_j+\frac{\partial a_{IJ}}{\partial y_j}dy_j\right)dz_Id\bar{z}_J \\
+		& = \sum_{j=1}^n\sum_{|I|=p, |J|=q}\frac{\partial a_{IJ}}{\partial z_j}dz_jdz_Id\bar{z}_J+\sum_{j=1}^n\sum_{|I|=p, |J|=q}\frac{\partial a_{IJ}}{\partial \bar{z}_j}d\bar{z}_jdz_Id\bar{z}_J.
+	\end{align*}
+If we let $\pi_{p,q+1}:\Omega^{p+q+1}(X) = \sum_{r+s=p+q+1}\Omega{r,s}(X)\to \Omega^{p,q}(x)$ denote the projection, then the \textit{Dolbeaut operator} is defined as 
+	\[\dolb:= \pi_{p,q+1}\circ d : \Omega^{p,q}(X) \to \Omega^{p,q+1}(X). \]
+From the above computation we see that (locally) $\dolb = \sum_{j=1}^n\frac{\partial}{\partial\bar{z}_j}d\bar{z}_j$.
+
+\begin{rem}
+	The bundle $T^*(X)\otimes \C$ is independent of the complex structure of $X$, however the summands $\Omega^{p,q}(X)$ do depend on the complex structure of $X$. Thus, the operator $\dolb$ depends on the complex structure of $X$, and indeed the functions $f\in C^\infty(X)$ for which $\dolb f = 0$ are, by the Cauchy-Riemann equations, precisely the holomorphic functions on $X$. 
+\end{rem}
+
+In this article we are mainly interested in the case when $X=\C P^1 = S^2$. As mentioned before, $\C P^1$ has the structure of the homogeneous space $SU(2)/\T$. In fact, we observe that $SU(2)$ acts on $\C P^1$ as biholomorphisms. Indeed, one checks that the induced action on $\C$ is by M\"{o}bius transformations. Thus, the action gives $T^*(\C P^1)\otimes \C$ the structure of a complex $SU(2)$-vector bundle. Therefore, $SU(2)$ acts on $\Omega(X)$. We want to check that $\dolb$ commutes with this action.  
+
+First, to be explicit, $SU(2)$ acts on $\Omega$ by 
+	\[A.\omega = (A^{-1})^*\omega, \]
+where $(A^{-1})^*\omega$ denotes the pushforward of $\omega$ by $A^{-1}$, considered an automorphism of $\C P^1$. Since the exterior derivative commutes with the pushforward, to show that $\dolb$ is equivariant it is sufficient to check that that action preserves the factors $\Omega^{p,q}(X)$. We summarize this in the following general fact. 
+
+\begin{prop}
+	Suppose that $F:X\to X$ is a holomorphism. Then $F^*$ maps $\Omega^{p,q}(X)$ to $\Omega^{p,q}$.
+\end{prop}
+\begin{proof}
+	It is sufficient (maybe?) to show that $F^*$ maps $\Omega^{1,0}(X)$ to $\Omega^{1,0}(X)$ and $\Omega^{0,1}(X)$ to $\Omega^{0,1}(X)$, since these generate $\Omega^{p,q}(X)$. 
+	
+	We compute  
+		\begin{align*}
+			F^*(adz_j) & = F^*(a(dx_j+idy_j)) = (a\circ F)(dF^{1,j}+idF^{2,j}) = (a\circ F)\sum_{k=1}^n\frac{\partial F^{1,j}}{\partial x_k}dx_k +\frac{\partial F^{2,j}}{\partial y_k}dy_k.
+		\end{align*}
+	Since $F$ is holomorphic, the Cauchy-Riemann equations say that $\frac{\partial F^j}{\partial y_k} = i\frac{\partial F^j}{\partial x_k}$, so that 
+		\begin{align*}
+			(a\circ F)\sum_{k=1}^n\frac{\partial F^j}{\partial x_k}dx_k +\frac{\partial F^j}{\partial y_k}dy_k = (a\circ F)\sum_{k=1}^n\frac{\partial F^j}{\partial x_k}dx_k +i\frac{\partial F^j}{\partial x_k}dy_k = (a\circ F)\sum_{k=1}^n\frac{\partial F^j}{\partial x_k}(dx_k +idy_k)
+		\end{align*}
+\end{proof}
+
+\end{document}
